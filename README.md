@@ -1,6 +1,6 @@
 # sketch-mosaic
 
-This is a tiny garden, shared and realtime, and can be found at [garden-party.vercel.app](https://garden-party.vercel.app).
+This is a tiny garden, shared and realtime, and can be found at [garden-party-ten.vercel.app](https://garden-party-ten.vercel.app).
 
 - Hit "Get a seed" to roll a random nut, sprout, or fern.
 - Tap on an empty tile to plant it.
