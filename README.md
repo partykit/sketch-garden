@@ -1,34 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# sketch-mosaic
 
-## Getting Started
+This is a tiny garden, shared and realtime, and can be found at [garden-party.vercel.app](https://garden-party.vercel.app).
 
-First, run the development server:
+- Hit "Get a seed" to roll a random nut, sprout, or fern.
+- Tap on an empty tile to plant it.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+The seed will grow into a plant, then maybe logs, and maybe something else will come along. Eventually it will disappear.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The garden is shared between everyone who visits the page.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+![image](/assets/garden.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Experimental!
 
-## Learn More
+This app was created during [Matt](https://interconnected.org)'s summer 2023 residency. The purpose is to experiment with multiplayer interactions, and simultaneously see what PartyKit can do. It's called a sketch because it's lightweight and quick, and because we learn something in making it.
 
-To learn more about Next.js, take a look at the following resources:
+## What you'll find here
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This app is based on Next.js and PartyKit.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This is an experiment into using:
 
-## Deploy on Vercel
+- [Yjs](https://yjs.dev) to share state -- it's a decent demo of how to do that without re-creating the whole ydoc at every render of the component
+- and updating a Yjs document (the garden) from the party server.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This also uses the `onAlarm` feature of the party server to iterate the garden every 1500ms.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+i.e. can we have autonomous behaviour away from any of the clients?
+
+The answer: kinda.
+
+The garden ticks along so long as at least one client has the garden open (the websocket keeps the server running). Which is neat! It saves running this shared behaviour on one of the clients! And it's probably better than a long-running server process that could get out of control. But still some work to do.

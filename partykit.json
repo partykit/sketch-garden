@@ -1,0 +1,4 @@
+{
+    "name": "garden-party",
+    "main": "src/partykit/garden.ts"
+}
