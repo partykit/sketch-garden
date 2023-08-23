@@ -31,3 +31,11 @@ i.e. can we have autonomous behaviour away from any of the clients?
 The answer: kinda.
 
 The garden ticks along so long as at least one client has the garden open (the websocket keeps the server running). Which is neat! It saves running this shared behaviour on one of the clients! And it's probably better than a long-running server process that could get out of control. But still some work to do.
+
+## To run locally
+
+- Check out the repo.
+- Copy `.env.example` into place as `.env.local`
+- Run the party server: `npx partykit dev`
+- Run the Nextjs app: `npm run dev`
+- Visit [http://localhost:3000](http://localhost:3000) in your browser.
